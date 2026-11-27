@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Manrope", system-ui, -apple-system, sans-serif;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-serif: "Source Serif 4", Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --color-canvas: #F8F7F2;
+  --color-cream: #F0EDE6;
+  --color-paper: #FFFFFF;
+  --color-ink: #1C1C1C;
+  --color-muted: #686868;
+  --color-border: #DDDAD3;
+  --color-accent: #E85D04;
+  --color-accent-dark: #C94E00;
+}
+
+@layer base {
+  html {
+    background-color: #F8F7F2;
+    color: #1C1C1C;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+  }
+
+  button:not(:disabled),
+  a[href],
+  select:not(:disabled) {
+    cursor: pointer;
+  }
+
+  ::selection {
+    background-color: rgba(232, 93, 4, 0.16);
+    color: #1C1C1C;
+  }
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Editorial clamp typography helpers */
+.hero-title {
+  font-size: clamp(2.25rem, 4.1vw, 3.5rem);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+.section-title {
+  font-size: clamp(1.625rem, 2.6vw, 2.25rem);
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Print / PDF export rules — prints strictly the A4 résumé sheet */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 0;
+  }
+
+  html, body {
+    background: #FFFFFF !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 210mm !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-only-container {
+    position: static !important;
+    display: block !important;
+    width: 210mm !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #FFFFFF !important;
+    border: none !important;
+    box-shadow: none !important;
+    transform: none !important;
+  }
+
+  .a4-sheet {
+    width: 210mm !important;
+    min-height: 297mm !important;
+    margin: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    transform: none !important;
+    border-radius: 0 !important;
+  }
+}

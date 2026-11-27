@@ -1,0 +1,6 @@
+{
+  "name": "ResumeCraft AI",
+  "description": "Editorial résumé builder with live A4 typesetting, contextual writing assistance, and ATS alignment.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
